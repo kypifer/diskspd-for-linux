@@ -261,11 +261,7 @@ namespace diskspd {
 		
 		// this shouldn't happen if sys-info's been initialized properly
 		if (!id_to_device.count(device_id)) {
-			fprintf(
-				stderr,
-				"Tried to lookup nonexistent device %u,%u in sys_info!\n",
-				major(device_id),
-				minor(device_id));
+			fprintf(stderr,	"Tried to lookup nonexistent device in sys_info!\n");
 			exit(1);
 		}
 
@@ -331,11 +327,7 @@ namespace diskspd {
 
 	off_t SysInfo::partition_size(dev_t device_id) {
 		if (!id_to_device.count(device_id)) {
-			fprintf(
-					stderr,
-					"Tried to lookup nonexistent device %u,%u in sys_info!\n",
-					major(device_id),
-					minor(device_id));
+			fprintf(stderr,	"Tried to lookup nonexistent device in sys_info!\n");
 			exit(1);
 		}
 
